@@ -1,0 +1,3 @@
+Your release is named {{ .Release.Name }}.
+To access your application, use the following command:
+$ minikube service myapp-service

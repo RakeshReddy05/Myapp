@@ -1,0 +1,7 @@
+appName: myapp
+
+dbName: mariadb
+
+image: 
+ name: rakeshreddy0605/my-app
+ tag: v2
