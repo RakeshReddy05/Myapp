@@ -12,13 +12,13 @@ pipeline{
         KUBE_CONFIG_CREDENTIAL_ID = 'kubeconfig-credential-id'
     }
 
-    stages('Checkout Source Code') {
+    stage('Checkout Source Code') {
         steps{
             git 'https://github.com/RakeshReddy05/Myapp.git'
         }
     }
 
-    stages('Build Docker Image') {
+    stage('Build Docker Image') {
         steps{
             script {
                     docker.build("${DOCKER_IMAGE}")
@@ -26,7 +26,7 @@ pipeline{
         }
     }
 
-    stages('Push Docker Image') {
+    stage('Push Docker Image') {
         steps{
             script {
                   docker.withRegistry('https://registry.hub.docker.com', env.DOCKER_CREDENTIALS_ID)
@@ -35,7 +35,7 @@ pipeline{
         }
     }
 
-    stages('Deployment to Kubernetes') {
+    stage('Deployment to Kubernetes') {
         steps{
             script{
                 kubernetesDeploy (
