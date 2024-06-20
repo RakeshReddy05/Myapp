@@ -1,6 +1,8 @@
 pipeline{
 
-    agent any 
+    agent {
+        docker { image 'rakeshreddy0605/jenkins-docker-agent-image'}
+    }
 
     environment{
         DOCKER_IMAGE = 'rakeshreddy0605/my-app'
