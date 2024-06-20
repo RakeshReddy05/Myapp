@@ -12,22 +12,22 @@ pipeline{
         KUBE_CONFIG_CREDENTIAL_ID = 'kubeconfig-credential-id'
     }
 
-    stage('Checkout Source Code') {
-        steps{
+    stage ('Checkout Source Code') {
+        steps {
             git 'https://github.com/RakeshReddy05/Myapp.git'
         }
     }
 
-    stage('Build Docker Image') {
-        steps{
+    stage ('Build Docker Image') {
+        steps {
             script {
                     docker.build("${DOCKER_IMAGE}")
                 }
         }
     }
 
-    stage('Push Docker Image') {
-        steps{
+    stage ('Push Docker Image') {
+        steps {
             script {
                   docker.withRegistry('https://registry.hub.docker.com', env.DOCKER_CREDENTIALS_ID)
                   dockerImage.push('latest') 
@@ -35,9 +35,9 @@ pipeline{
         }
     }
 
-    stage('Deployment to Kubernetes') {
-        steps{
-            script{
+    stage ('Deployment to Kubernetes') {
+        steps {
+            script {
                 kubernetesDeploy (
                  configs: 'mariadb-configmap.yaml', 'mariadb-secret.yaml', 'mariadb-service.yaml', 'mariadb-deployment.yaml', 'myapp-service.yaml', 'myapp-deployment.yaml', 
                  kubeconfigId: env.KUBE_CONFIG_CREDENTIAL_ID
