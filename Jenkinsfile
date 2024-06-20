@@ -1,8 +1,8 @@
 pipeline{
 
     agent {
-        docker {
-            image 'rakeshreddy0605/jenkins-docker-agent-image'
+        node {
+            label 'docker-agent'
         }
     }
 
