@@ -11,7 +11,7 @@ pipeline{
         DOCKER_CREDENTIALS_ID = 'Dockerhub-credentials'
         KUBE_CONFIG_CREDENTIAL_ID = 'kubeconfig-credential-id'
     }
-
+stages {
     stage ('Checkout Source Code') {
         steps {
             git 'https://github.com/RakeshReddy05/Myapp.git'
@@ -46,4 +46,6 @@ pipeline{
         }
 
     }
+}
+
 }
