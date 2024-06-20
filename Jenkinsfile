@@ -14,7 +14,7 @@ pipeline{
 stages {
     stage ('Checkout Source Code') {
         steps {
-            git 'https://github.com/RakeshReddy05/Myapp.git'
+            git branch: 'main', url: 'https://github.com/RakeshReddy05/Myapp.git'
         }
     }
 
