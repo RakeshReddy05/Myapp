@@ -1,10 +1,6 @@
 pipeline{
 
-    agent {
-        node {
-            label 'docker-agent'
-        }
-    }
+    agent any 
 
     environment{
         DOCKER_IMAGE = 'rakeshreddy0605/my-app'
