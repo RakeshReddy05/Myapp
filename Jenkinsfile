@@ -3,6 +3,7 @@ pipeline{
     agent {
         docker {
             image 'rakeshreddy0605/jenkins-agent-image'
+            args '-v /var/run/docker.sock:/var/run/docker.sock'
             label 'docker-agent'
         }
     }
