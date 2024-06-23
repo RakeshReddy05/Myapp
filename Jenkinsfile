@@ -1,12 +1,6 @@
 pipeline{
 
-    agent {
-        docker {
-            image 'rakeshreddy0605/jenkins-agent-image'
-            args '-v /var/run/docker.sock:/var/run/docker.sock'
-            label 'docker-agent'
-        }
-    }
+    agent any 
 
     environment{
         DOCKER_IMAGE = 'rakeshreddy0605/my-app'
