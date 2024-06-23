@@ -2,7 +2,7 @@ pipeline{
 
     agent {
         docker {
-            image 'nestybox/jenkins-syscont'
+            image 'rakeshreddy0605/jenkins-agent-image'
             label 'docker-agent'
         }
     }
