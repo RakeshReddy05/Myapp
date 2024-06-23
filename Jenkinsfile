@@ -2,9 +2,8 @@ pipeline{
 
     agent {
         docker {
-            image 'bibinwilson/jenkins-slave'
+            image 'nestybox/jenkins-syscont'
             label 'docker-agent'
-            args '-v /var/run/docker.sock:/var/run/docker.sock'
         }
     }
 
