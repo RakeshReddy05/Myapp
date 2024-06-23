@@ -1,7 +1,7 @@
 pipeline{
 
     agent {
-        node {
+        docker {
             label 'docker-agent'
             args '-v /var/run/docker.sock:/var/run/docker.sock'
         }
